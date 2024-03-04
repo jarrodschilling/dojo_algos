@@ -48,4 +48,29 @@ function removeAt(array, idx) {
     return removedVal
 }
 
-console.log(removeAt(array1, idx1))
+// console.log(removeAt(array1, idx1))
+
+
+function swapPairs (arr) {
+    for (let i = 0; i<arr.length-1; i+=2) {
+        const temp = arr[i]
+        arr[i] = arr[i+1]
+        arr[i+1] = temp
+    }
+    
+    return arr
+}
+
+// console.log(swapPairs(array1))
+
+
+function removeDuplicates(arr) {
+    for (let i = 0; i<arr.length-1; i++) {
+        if (arr[i] == arr[i+1]) {
+            idxList.push(i+1)
+        }
+    }
+    return arr
+}
+
+console.log(arr(array1))

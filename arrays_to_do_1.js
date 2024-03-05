@@ -1,4 +1,4 @@
-const array1 = [1,2,3,4,5]
+const array1 = [1,2,3,3,4,5,5,5]
 const val1 = 91
 const idx1 = 3
 
@@ -64,13 +64,24 @@ function swapPairs (arr) {
 // console.log(swapPairs(array1))
 
 
-function removeDuplicates(arr) {
-    for (let i = 0; i<arr.length-1; i++) {
-        if (arr[i] == arr[i+1]) {
-            idxList.push(i+1)
+function removeDuplicate(arr) {
+    let length = 0;
+    const temp = {};
+    let startNum = arr[0]
+    for (let i = 0; i < arr.length; i++) {
+        if (!temp[arr[i]]) {
+            temp[arr[i]] = startNum;
+            arr[length] = arr[i];
+            length++;
         }
     }
-    return arr
+    
+    if (!temp[arr[arr.length-1]]) {
+        length--;
+    }
+    arr.length = length
+    // arr.pop(arr[arr.length])
+    return arr;
 }
 
-console.log(arr(array1))
+console.log(removeDuplicate(array1))

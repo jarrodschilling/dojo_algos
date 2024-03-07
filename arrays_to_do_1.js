@@ -1,4 +1,4 @@
-const array1 = [1,2,3,3,4,5,5,5]
+const array1 = [1,1,2,2,2,2,3,3,3,3,4,5,5,5]
 const val1 = 91
 const idx1 = 3
 
@@ -44,7 +44,7 @@ function removeAt(array, idx) {
         array[i-1] = array[i]
     }
     array.pop(array[array.length-1])
-    console.log(array)   
+    // console.log(array)   
     return removedVal
 }
 
@@ -64,23 +64,46 @@ function swapPairs (arr) {
 // console.log(swapPairs(array1))
 
 
+// function removeDuplicate(arr) {
+//     let length = 0;
+//     const temp = {};
+//     let startNum = arr[0]
+//     for (let i = 0; i < arr.length; i++) {
+//         if (!temp[arr[i]]) {
+//             temp[arr[i]] = startNum;
+//             arr[length] = arr[i];
+//             length++;
+//         }
+//     }
+    
+//     if (!temp[arr[arr.length-1]]) {
+//         length--;
+//     }
+//     arr.length = length
+//     return arr;
+// }
+
+// console.log(removeDuplicate(array1))
+
+
 function removeDuplicate(arr) {
     let length = 0;
-    const temp = {};
-    let startNum = arr[0]
+    let tempIdx = 0;
     for (let i = 0; i < arr.length; i++) {
-        if (!temp[arr[i]]) {
-            temp[arr[i]] = startNum;
-            arr[length] = arr[i];
-            length++;
+        if (arr[i] === arr[i+1] || arr[i] === arr[i-1]) {
+            tempIdx = i
+            removeAt(arr, tempIdx)
         }
+        // console.log(arr)
     }
-    
-    if (!temp[arr[arr.length-1]]) {
-        length--;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === arr[i+1]) {
+            tempIdx = i
+            removeAt(arr, tempIdx)
+        }
+        // console.log(arr)
     }
-    arr.length = length
-    // arr.pop(arr[arr.length])
+
     return arr;
 }
 
